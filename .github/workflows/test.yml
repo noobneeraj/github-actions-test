@@ -19,6 +19,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git remote set-url origin https://$OWNER:$TOKEN@github.com/$OWNER/$REPO.git 
           git commit -m "Add updated to README" README.md
+          git push origin main
         env:
           REPO: ${{ github.repository }}
           OWNER: ${{ github.repository_owner }}
