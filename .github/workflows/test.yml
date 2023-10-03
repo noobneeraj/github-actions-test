@@ -9,11 +9,9 @@ jobs:
   add-updated:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v1
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 2
+          ref: ${{ github.head_ref }}
       - name: Add updated to README
         run: echo "Added Text" >> README.md
       - name: Commit changes
