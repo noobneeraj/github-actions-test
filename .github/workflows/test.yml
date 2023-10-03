@@ -1,5 +1,8 @@
 name: testing push functionality
-on: [push]
+on:
+  push:
+    branches:
+    - main
 
 jobs:
   test:
@@ -18,3 +21,4 @@ jobs:
           git config --global user.name "GitHub Actions"
           git commit -am "Updated README.md by ${{ github.actor }}"
           git push origin main
+          echo "Done"
