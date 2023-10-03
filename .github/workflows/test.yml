@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
-      
+
+permissions:
+    contents: write
+
 jobs:
-  build:
+  update-read-me:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
