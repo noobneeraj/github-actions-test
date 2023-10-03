@@ -6,23 +6,24 @@ on:
       - closed
     branches:
       - main
- 
+
 permissions:
     contents: write
 
 jobs:
-  add-updated:
+  read-me-update:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - uses: actions/checkout@v2
+      - name: Checking out the repo
+        uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.head_ref }}
-          
+
       - name: Add updated to README
         run: echo "\n\m${{ github.actor }}"  >> README.md
-        
+
       - name: Commit and Push
         run: |
           if [ "$(git status | grep 'Changes not staged\|Untracked files')" ]; then
