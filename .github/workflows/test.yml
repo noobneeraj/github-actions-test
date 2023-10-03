@@ -12,11 +12,21 @@ jobs:
   update-read-me:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: |
+
+      - name: Checking out the repo
+        uses: actions/checkout@v4
+
+      - name: Adding config values
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
+
+      - name: Making changes to README.md
+        run: |
           echo "\ndefault script test" >> README.md
+
+      - name: Commiting and pushing the changes
+        run: |
           git add .
           git commit -m "Update README.md"
           git push
