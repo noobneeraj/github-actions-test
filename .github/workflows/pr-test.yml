@@ -16,13 +16,13 @@ jobs:
 
     steps:
       - name: Checking out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           ref: ${{ github.head_ref }}
 
       - name: Add updated to README
-        run: echo "\n\m${{ github.actor }}"  >> README.md
+        run: echo "\n\n${{ github.actor }}"  >> README.md
 
       - name: Commit and Push
         run: |
