@@ -1,0 +1,20 @@
+name: testing push functionality
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Adding Changes to README.md
+        run: |
+          echo "Added Text to README.md" >> README.md
+
+      - name: Commiting the changes
+      - run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -am "Updated README.md by ${{ github.actor }}"
+          git push origin main
