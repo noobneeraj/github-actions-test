@@ -24,3 +24,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
           branch: main
+          github_url: https://github.com/${{ github.repository_owner }}/${{ github.repository }}
