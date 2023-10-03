@@ -31,9 +31,12 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     branch: main
       
-      - name: Auto Github Push
-        uses: ms-jpq/auto-github-push@v1
-        with:
-          username: ${{ github.repository_owner }}
-          # Github token
-          token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Auto Github Push
+      #   uses: ms-jpq/auto-github-push@v1
+      #   with:
+      #     username: ${{ github.repository_owner }}
+      #     # Github token
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: GitHub Action for Push
+        uses: buildtool/push-action@v1
