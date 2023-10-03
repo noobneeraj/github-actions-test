@@ -12,8 +12,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
+          persist-credentials: false
+          fetch-depth: 0 
         
       - name: Adding Changes to README.md
         run: |
@@ -25,8 +25,9 @@ jobs:
           git config --global user.name "GitHub Actions"
           git commit -m "Add updated to README" README.md
 
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          permissions: repo
