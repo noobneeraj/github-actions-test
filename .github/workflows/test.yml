@@ -25,8 +25,15 @@ jobs:
           git config --global user.name "GitHub Actions"
           git commit -am "Updated README.md by ${{ github.actor }}"
           
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+      # - name: Push changes
+      #   uses: ad-m/github-push-action@v0.6.0
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: main
+      
+      - name: Auto Github Push
+        uses: ms-jpq/auto-github-push@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+          username: ${{ github.repository_owner }}
+          # Github token
+          token: ${{ secrets.GITHUB_TOKEN }}
