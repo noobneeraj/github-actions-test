@@ -10,24 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
-          fetch-depth: 0 
-        
-      - name: Adding Changes to README.md
-        run: |
-          echo "Added Text to README.md" >> README.md
-          
+        uses: actions/checkout@v2
+      - name: Add updated to README
+        run: echo "updated" >> README.md
       - name: Commit changes
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git commit -m "Add updated to README" README.md
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          permissions: repo
+          repository: iamwatchdogs/github-actions-test
+          branch: main
